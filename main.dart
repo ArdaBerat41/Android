@@ -1,89 +1,92 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Uygicardi());
+  runApp(snv());
 }
 
-class Uygicardi extends StatelessWidget {
-  const Uygicardi({super.key});
+class snv extends StatelessWidget {
+  const snv({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          body: Container(
-        alignment: Alignment.center,
-        width: double.infinity,
-        color: Colors.yellow,
-        child: Container(
-          margin: EdgeInsets.only(left: 100, right: 100),
+        appBar: AppBar(
+          title: Text("Debit Cards"),
+        ),
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          color: Colors.greenAccent,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Kart"),
-              Container(
-                padding: EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        topRight: Radius.circular(16))),
-                height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text("Profil"), Icon(Icons.person)],
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: Text(
+                  "Debit Cards",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
               ),
+
+              Image.asset("images/bankCard.jpg"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 50),
+                    child: Column(
+                      children: [Icon(Icons.account_balance),Text("Send")],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 50),
+                        child: Column(
+                          children: [Icon(Icons.account_balance_wallet),Text("Top Up")],
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 50),
+                        child: Column(
+                          children: [Icon(Icons.add_card),Text("Hecive")],
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
               Container(
-                padding: EdgeInsets.all(8.0),
-                color: Colors.white,
-                width: double.infinity,
-                child: Column(
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white),
+                width: 150,
+                height: 25,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      radius: 100,
-                      backgroundImage: AssetImage("images/bellingham.jpg"),
-                    ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("Jude Bellingham"),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("bellingham@madrid.com"),
-                    ),
+                      padding: const EdgeInsets.only(right: 50),
+                      child: Column(
+                        children:[Icon(Icons.add_box_outlined),Text("")],
+                      ),
+                      
+
+
+                    )
                   ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(8.0),
-                color: Colors.white,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Edit"),
-                    Icon(Icons.edit),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(16),
-                    )),
-                height: 50,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text("Durum"), Icon(Icons.assignment)],
                 ),
               ),
             ],
           ),
         ),
-      )),
+      ),
     );
   }
 }

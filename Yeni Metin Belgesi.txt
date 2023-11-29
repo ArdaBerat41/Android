@@ -1,0 +1,108 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(Hesap());
+}
+
+class Hesap extends StatefulWidget {
+  const Hesap({super.key});
+
+  @override
+  State<Hesap> createState() => _HesapState();
+}
+
+class _HesapState extends State<Hesap> {
+  int sayi1 = 3;
+  int sayi2 = 5;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+      backgroundColor: Colors.blueAccent,
+      appBar: AppBar(
+        title: Text("Hesap Makinesi"),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.0),
+                  color: Colors.blueAccent),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(color: Colors.blueAccent),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("1.Sayı : $sayi1"),
+                      ElevatedButton(
+                          child: Text("arttır"),
+                        onPressed: () {
+                          setState(() {
+                            sayi1++;
+                          });
+                        },
+                      ),
+
+                      ElevatedButton(
+                        child: Text("azalt"),
+                        onPressed: () {
+                          setState(() {
+                            sayi1--;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [Text("2.Sayı"),
+                      ElevatedButton(
+                        child: Text("arttır"),
+                        onPressed: () {
+                          setState(() {
+                            sayi2++;
+                          });
+                        },
+                      ),
+                      ElevatedButton(
+                        child: Text("azalt"),
+                        onPressed: () {
+                          setState(() {
+                            sayi2--;
+                          });
+                        },
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Divider(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.0),
+                  color: Colors.blueAccent),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(color: Colors.blueAccent),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [Text("Toplam")],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    ));
+  }
+}

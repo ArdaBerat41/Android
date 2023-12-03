@@ -12,6 +12,10 @@ class Hesap extends StatefulWidget {
 }
 
 class _HesapState extends State<Hesap> {
+  int carpim= 0;
+  int bolum = 0;
+  int fark = 0;
+  int toplam =0;
   int sayi1 = 3;
   int sayi2 = 5;
 
@@ -19,90 +23,148 @@ class _HesapState extends State<Hesap> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      backgroundColor: Colors.blueAccent,
-      appBar: AppBar(
-        title: Text("Hesap Makinesi"),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.0),
-                  color: Colors.blueAccent),
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(color: Colors.blueAccent),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          backgroundColor: Colors.blueAccent,
+          appBar: AppBar(
+            title: Text("Hesap Makinesi"),
+          ),
+          body: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      color: Colors.white),
+                  child: Column(
                     children: [
-                      Text("1.Sayı : $sayi1"),
-                      ElevatedButton(
-                          child: Text("arttır"),
-                        onPressed: () {
-                          setState(() {
-                            sayi1++;
-                          });
-                        },
+                      Container(
+                        decoration: BoxDecoration(color: Colors.white),
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("1.Sayı : $sayi1"),
+                          ElevatedButton(
+                            child: Text("arttır"),
+                            onPressed: () {
+                              setState(() {
+                                sayi1++;
+                              });
+                            },
+                          ),
 
-                      ElevatedButton(
-                        child: Text("azalt"),
-                        onPressed: () {
-                          setState(() {
-                            sayi1--;
-                          });
-                        },
+                          ElevatedButton(
+                            child: Text("azalt"),
+                            onPressed: () {
+                              setState(() {
+                                sayi1--;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("2.Sayı : $sayi2"),
+                          ElevatedButton(
+                            child: Text("arttır"),
+                            onPressed: () {
+                              setState(() {
+                                sayi2++;
+                              });
+                            },
+                          ),
+
+                          ElevatedButton(
+                            child: Text("azalt"),
+                            onPressed: () {
+                              setState(() {
+                                sayi2--;
+                              });
+                            },
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("2.Sayı"),
-                      ElevatedButton(
-                        child: Text("arttır"),
-                        onPressed: () {
-                          setState(() {
-                            sayi2++;
-                          });
-                        },
-                      ),
-                      ElevatedButton(
-                        child: Text("azalt"),
-                        onPressed: () {
-                          setState(() {
-                            sayi2--;
-                          });
-                        },
-                      ),
-                    ],
-                  )
-                ],
-              ),
+                ),
+                Divider(height: 20),
+                Container(
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Toplam : $toplam"),
+                    ElevatedButton(
+                      child: Text("arttır"),
+                      onPressed: () {
+                        setState(() {
+                          toplam=sayi1+sayi2;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                Divider(height: 20),
+                Container(
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Fark : $fark"),
+                    ElevatedButton(
+                      child: Text("Fark"),
+                      onPressed: () {
+                        setState(() {
+                          fark=sayi1-sayi2;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                Divider(height: 20),
+                Container(
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Çarpım : $carpim"),
+                    ElevatedButton(
+                      child: Text("Çarpım"),
+                      onPressed: () {
+                        setState(() {
+                          carpim=sayi1*sayi2;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                Divider(height: 20),
+                Container(
+                  decoration: BoxDecoration(color: Colors.white),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Bölüm : $bolum"),
+                    ElevatedButton(
+                      child: Text("Bölüm"),
+                      onPressed: () {
+                        setState(() {
+                          bolum=sayi1*sayi2;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                Divider(height: 20),
+              ],
             ),
-            Divider(height: 20),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.0),
-                  color: Colors.blueAccent),
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(color: Colors.blueAccent),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Toplam")],
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 }

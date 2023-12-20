@@ -168,3 +168,102 @@ class _HesapState extends State<Hesap> {
         ));
   }
 }
+
+
+
+
+LOADİNG KODUU
+
+
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(loginScreen());
+}
+
+
+class loginScreen extends StatefulWidget {
+
+  @override
+  State<loginScreen> createState() => _loginScreenState();
+}
+
+class _loginScreenState extends State<loginScreen> {
+  List listUsernames =['admin','efe','yekta'];
+  List listPassword = ['1234','1','12'];
+
+
+  String Username =('admin');
+  String Password = ('1234');
+
+  String sonuc = "Hoşgeldiniz";
+
+  Map<String,String> mapOfUsers = {"admin":"1234","efe":"1","yekta":"12"};
+
+  TextEditingController textUsername=TextEditingController();
+
+  TextEditingController textPassword=TextEditingController();
+
+
+  @override
+
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
+          child: Container(
+            margin: EdgeInsets.only(right: 100, left: 100),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    controller: textUsername,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                        hintText: 'Kullanıcı Adı'
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    controller: textPassword,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Parola'
+                    ),
+                  ),
+                ),Text(sonuc  ),
+                Padding(padding: EdgeInsets.only(bottom: 20)),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      if(listUsernames.contains(textUsername.text)&&  listPassword[listUsernames.indexOf(textUsername.text)]==textPassword.text)
+                      {
+                        sonuc='tebrikler';
+                      }
+                      {
+                        sonuc="Tebrikler Doğru";
+                      }
+                    });
+                  },
+                  child: Text("Giriş"),
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.black),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
